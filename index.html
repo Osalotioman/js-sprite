@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Sprite Animations Gallery</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Courier New', Courier, monospace;
+            background: #f5f5f5;
+            color: #1a1a1a;
+            min-height: 100vh;
+            padding: 4rem 2rem;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        header {
+            margin-bottom: 4rem;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            letter-spacing: -0.02em;
+        }
+
+        .subtitle {
+            font-size: 1.25rem;
+            color: #666;
+            font-weight: 400;
+        }
+
+        .animation-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .animation-card {
+            background: #ffffff;
+            border: 2px solid #1a1a1a;
+            padding: 2.5rem;
+            text-decoration: none;
+            color: #1a1a1a;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .animation-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #1a1a1a;
+            transform: translateY(100%);
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 0;
+        }
+
+        .animation-card:hover::before {
+            transform: translateY(0);
+        }
+
+        .animation-card > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        .animation-card:hover {
+            border-color: #1a1a1a;
+            transform: translateY(-4px);
+        }
+
+        .animation-card:hover .animation-title,
+        .animation-card:hover .animation-description {
+            color: #ffffff;
+        }
+
+        .animation-title {
+            font-size: 1.75rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            transition: color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .animation-description {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #666;
+            transition: color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        footer {
+            padding-top: 3rem;
+            border-top: 2px solid #1a1a1a;
+            font-size: 0.95rem;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        footer a {
+            color: #1a1a1a;
+            text-decoration: underline;
+            text-decoration-thickness: 2px;
+            text-underline-offset: 2px;
+            transition: opacity 0.2s ease;
+        }
+
+        footer a:hover {
+            opacity: 0.6;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 3rem 1.5rem;
+            }
+
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            .subtitle {
+                font-size: 1.1rem;
+            }
+
+            .animation-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .animation-card {
+                padding: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>JS Sprite Animations</h1>
+            <p class="subtitle">Interactive canvas sprite animations built with JavaScript</p>
+        </header>
+
+        <main class="animation-grid">
+            <a href="./dog/index.html" class="animation-card">
+                <h2 class="animation-title">Shadow Dog</h2>
+                <p class="animation-description">
+                    Interactive dog sprite with multiple animations including idle, jump, run, bite, and more. Choose from 10 different animation states.
+                </p>
+            </a>
+
+            <!-- Add more animation cards here as you create new animations -->
+        </main>
+
+        <footer>
+            <p>Based on <a href="https://youtu.be/GFO_txvwK_c?si=c_1XQaOcQEEL9VmW" target="_blank">JavaScript Game Development Course for Beginners</a> by Frank — Available on freeCodeCamp</p>
+        </footer>
+    </div>
+</body>
+</html>
